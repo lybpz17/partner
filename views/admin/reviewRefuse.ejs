@@ -1,0 +1,21 @@
+<script>
+	function fanhui(){
+		$('#modal-body').load('./identityInfo?id='+'<%-id%>');
+	}
+</script>
+<form method='post' action='./reviewRefuse'>
+	<table>
+		<tr>
+			<td>
+				<textarea cols="60" rows="5" placeholder="请输入驳回理由" name='msg'></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type='hidden' name='id' value='<%-id%>'/>
+				<input type='submit' value="驳回"/>&nbsp;
+				<input type='button' value='返回' onclick='fanhui()'/>
+			</td>
+		</tr>
+	</table>
+</form>

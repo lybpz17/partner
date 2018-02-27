@@ -1,0 +1,46 @@
+<script>
+    function reviewPass(id){
+        $.get('./reviewpass?id='+id,function(rehtml){
+            if(rehtml==0){
+                location.href='./identity';
+            }else{
+                alert('服务器繁忙,稍后再试');
+            }
+        })
+    }
+    function reviewRefuse(id){
+        $('#modal-body').load('./reviewRefuse?id='+id);
+    }
+</script>
+<table border="1" align="center">
+    <tr>
+        <td>姓名:</td>
+        <td><%-rs.realname%></td>
+    </tr>
+    <tr>
+        <td>性别:</td>
+        <td><%-rs.sex%></td>
+    </tr>
+    <tr>
+        <td>身份证号:</td>
+        <td><%-rs.idcardnum%></td>
+    </tr>
+    <tr>
+        <td>身份证正面照:</td>
+        <td><img src='<%-rs.idcardface%>' width='200' height='150'/></td>
+    </tr>
+    <tr>
+        <td>身份证背面照:</td>
+        <td><img src='<%-rs.idcardback%>' width='200' height='150'/></td>
+    </tr>
+    <tr>
+        <td>手持身份证照:</td>
+        <td><img src='<%-rs.idcardme%>' width='200' height='150'/></td>
+    </tr>
+    <tr>
+        <td colspan='2' align='center'>
+            <input type='button' class='btn btn-primary' value='审核通过' onclick='reviewPass("<%-rs._id%>")'/>&nbsp;
+            <input type='button' class='btn btn-primary' value='审核驳回' onclick='reviewRefuse("<%-rs._id%>")'/>
+        </td>
+    </tr>
+</table>

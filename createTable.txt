@@ -1,0 +1,25 @@
+0.管理员表:
+db.createCollection("adminusers")
+db.adminusers.insert({"email":"admin","pwd":"admin","nicheng":"管理员"})
+1.账号表:
+有一个角色标志位:
+	0表刚注册
+	1表审核中
+	2表审核通过
+	-1表审核驳回
+信用积分:（0）
+	履约信用
+好评度:(0)
+	发起结伴的好评度
+
+db.createCollection("users")
+db.users.ensureIndex({"email":1},{"unique":true,"name":"emailuiq"})
+db.users.ensureIndex({"nicheng":1},{"unique":true,"name":"nichenguiq"})
+2.用户认证信息表
+真实姓名
+性别
+手机号
+身份证号
+身份证正面照
+身份证背面照
+手持身份证照片
